@@ -1,2 +1,0 @@
-# CSN
-Couple Social Network
