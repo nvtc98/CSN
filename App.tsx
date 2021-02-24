@@ -6,7 +6,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
+        <Text>Gke Gke</Text>
       </View>
     </NavigationContainer>
   );
