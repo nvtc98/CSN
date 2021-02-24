@@ -15,8 +15,8 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_COUPLE_SN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_VITEK_COUPLELIFE }}'
           channelId: live
-          projectId: couple-sn
+          projectId: vitek-couplelife
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
