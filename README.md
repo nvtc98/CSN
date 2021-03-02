@@ -1,5 +1,5 @@
 # CoupleLife
 Couple Social Network
 
-https://couple-sn.web.app/
+https://vitek-couplelife.web.app/
 deploy: yarn run deploy-hosting

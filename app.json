@@ -1,12 +1,15 @@
 {
-  "name": "CSN",
-  "displayName": "CSN",
+  "name": "CoupleLife",
+  "displayName": "CoupleLife",
   "expo": {
-    "name": "CSN",
-    "slug": "CSN",
+    "name": "CoupleLife",
+    "slug": "CoupleLife",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "web": { 
+      "name": "CoupleLife"
+    }
   }
 }
