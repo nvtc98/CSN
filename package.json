@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "test": "jest",
     "predeploy": "expo build:web",
-    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
+    "deploy": "yarn run predeploy && firebase deploy --only hosting"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -19,6 +19,7 @@
     "expo-linear-gradient": "~8.4.0",
     "expo-splash-screen": "~0.8.0",
     "expo-updates": "~0.4.0",
+    "lodash": "^4.17.21",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
@@ -39,6 +40,7 @@
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native": "~0.63.2",
+    "@types/react-redux": "^7.1.16",
     "babel-eslint": "^10.0.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-expo": "8.3.0",

@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { scale, isDesktop } from '@common/utilities';
 import { color } from '@common/constants';
 import { AntDesign } from '@expo/vector-icons';
-import Store from '@redux/store.js';
+import Store from '@redux/store';
 import Login from '@screens/Login';
 import Home from '@screens/Home';
 
