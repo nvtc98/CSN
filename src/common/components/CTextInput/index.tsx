@@ -3,26 +3,31 @@ import { View, StyleSheet, TextInput, Platform } from 'react-native';
 import { scale } from '@common/utilities';
 
 // @flow
-type TextInputProps = {
-  onChange: Function;
-  placeholder: string;
-};
+interface TextInputProps {
+  onChangeText?: Function;
+  placeholder?: string;
+  style?: any;
+  type?: 'text' | 'password';
+}
 
 const CTextInput = (props: TextInputProps) => {
   const [text, setText] = useState('');
-  const { onChange } = props;
+  const { onChangeText, style, type } = props;
 
   return (
     <TextInput
+      {...props}
       onChangeText={value => setText(value)}
       value={text}
-      style={{
-        width: scale(260),
-        borderBottomWidth: scale(1),
-        borderBottomColor: '#789',
-        ...(Platform.OS === 'web' ? { outlineColor: 'transparent' } : {}),
-      }}
-      {...props}
+      style={[
+        Platform.OS === 'web'
+          ? {
+              outlineStyle: 'none',
+            }
+          : {},
+        style,
+      ]}
+      secureTextEntry={type === 'password'}
     />
   );
 };

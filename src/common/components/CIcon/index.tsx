@@ -33,8 +33,29 @@ const IconTemplate = {
   SimpleLineIcons,
 };
 
+interface CIconProps {
+  type:
+    | 'AntDesign'
+    | 'Entypo'
+    | 'EvilIcons'
+    | 'Feather'
+    | 'FontAwesome'
+    | 'FontAwesome5'
+    | 'Fontisto'
+    | 'Foundation'
+    | 'Ionicons'
+    | 'MaterialIcons'
+    | 'MaterialCommunityIcons'
+    | 'Octicons'
+    | 'Zocial'
+    | 'SimpleLineIcons';
+  name: string;
+  style?: any;
+}
+
+// @flow
 const CIcon = React.memo(
-  React.forwardRef((props, ref) => {
+  React.forwardRef((props: CIconProps, ref) => {
     const { type } = props;
     const Icon = IconTemplate[type] || IconTemplate['MaterialCommunityIcons'];
 

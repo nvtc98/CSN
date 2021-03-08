@@ -14,6 +14,9 @@ const commonStyles = StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
+  spaceBetween: {
+    justifyContent: 'space-between',
+  },
 });
 
 export { color, commonStyles };

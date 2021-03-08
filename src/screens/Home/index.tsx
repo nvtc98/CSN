@@ -1,13 +1,17 @@
 import React, { memo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { color } from '@common/constants';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { color, commonStyles } from '@common/constants';
+import { scale } from '@common/utilities';
 
 interface indexProps {}
 
 const Home = ({}: indexProps) => {
   return (
-    <View style={{ backgroundColor: color.secondary, flex: 1 }}>
-      <Text>Homo hehe</Text>
+    <View style={[commonStyles.center, { backgroundColor: color.secondary, flex: 1 }]}>
+      <Image
+        source={require('@assets/images/IMG_0658.JPG')}
+        style={{ width: scale(100), height: scale(100) }}
+      />
     </View>
   );
 };
