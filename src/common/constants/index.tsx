@@ -4,6 +4,7 @@ const color = {
   primary: '#7babf9', //'#81d4fa',
   primaryGradient: '#8dc2ec',
   secondary: '#FFF',
+  alert: '#cc3300',
 };
 
 const commonStyles = StyleSheet.create({
@@ -19,4 +20,8 @@ const commonStyles = StyleSheet.create({
   },
 });
 
-export { color, commonStyles };
+const configs = {
+  serverBaseUrl: 'https://couple-life.herokuapp.com/',
+};
+
+export { color, commonStyles, configs };

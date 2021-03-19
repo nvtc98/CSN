@@ -6,9 +6,11 @@ import { scale } from '@common/utilities';
 import CTextInput from '@common/components/CTextInput';
 import { AntDesign } from '@expo/vector-icons';
 import CButton from '@common/components/CButton';
+import { ActivityIndicator } from 'react-native-paper';
+import { useLogin } from './Util';
 
 // @flow
-const LoginScreen = ({ navigation }: { navigation: object }) => {
+const LoginScreen = ({ navigation }: { navigation: any }) => {
   return (
     <LinearGradient
       colors={[color.primary, color.primaryGradient]}
@@ -24,20 +26,7 @@ const LoginScreen = ({ navigation }: { navigation: object }) => {
             Social Life
           </Text>
 
-          <LoginTextInput icon="mail" />
-          <LoginTextInput icon="lock1" type="password" />
-
-          <CButton
-            style={{
-              width: scale(200),
-              height: scale(40),
-              backgroundColor: color.primary,
-              borderRadius: scale(20),
-              marginTop: scale(24),
-            }}
-            text="Login"
-            textStyle={{ color: '#FFF', fontWeight: 'bold' }}
-          />
+          <LoginContainer />
 
           <View
             style={[
@@ -83,25 +72,82 @@ const LoginScreen = ({ navigation }: { navigation: object }) => {
   );
 };
 
-const LoginTextInput = memo(({ icon, type }: { icon: any; type?: 'text' | 'password' }) => {
+const LoginContainer = memo(() => {
+  const { onLogin, onChangeText, errorMessage, loading } = useLogin();
   return (
-    <View
-      style={[
-        commonStyles.row,
-        commonStyles.spaceBetween,
-        {
-          width: scale(260),
-          borderBottomWidth: scale(1),
-          borderBottomColor: '#789',
-          padding: scale(4),
-          marginTop: scale(12),
-        },
-      ]}>
-      <CTextInput style={{ width: '85%' }} type={type} />
-      <AntDesign name={icon} size={18} color="#789" />
-    </View>
+    <>
+      <LoginTextInput
+        icon="mail"
+        onChangeText={(value: string) => onChangeText('username', value)}
+      />
+      <LoginTextInput
+        icon="lock1"
+        type="password"
+        onChangeText={(value: string) => onChangeText('password', value)}
+      />
+
+      <View>
+        <Text
+          style={{
+            color: color.alert,
+            fontSize: scale(10),
+            position: 'absolute',
+            top: scale(8),
+            left: 0,
+            right: 0,
+            textAlign: 'center',
+          }}>
+          {errorMessage}
+        </Text>
+        <CButton
+          style={{
+            width: scale(200),
+            height: scale(40),
+            backgroundColor: color.primary,
+            borderRadius: scale(20),
+            marginTop: scale(30),
+          }}
+          onPress={onLogin}>
+          {loading ? (
+            <ActivityIndicator color={color.primaryGradient} />
+          ) : (
+            <Text style={{ color: '#FFF', fontWeight: 'bold' }}>Login</Text>
+          )}
+        </CButton>
+      </View>
+    </>
   );
 });
+
+const LoginTextInput = memo(
+  ({
+    icon,
+    type,
+    onChangeText,
+  }: {
+    icon: any;
+    type?: 'text' | 'password';
+    onChangeText: Function;
+  }) => {
+    return (
+      <View
+        style={[
+          commonStyles.row,
+          commonStyles.spaceBetween,
+          {
+            width: scale(260),
+            borderBottomWidth: scale(1),
+            borderBottomColor: '#789',
+            padding: scale(4),
+            marginTop: scale(12),
+          },
+        ]}>
+        <CTextInput style={{ width: '85%' }} type={type} onChangeText={onChangeText} />
+        <AntDesign name={icon} size={18} color="#789" />
+      </View>
+    );
+  }
+);
 
 export default memo(LoginScreen);
 

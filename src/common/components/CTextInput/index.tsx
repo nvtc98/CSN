@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, memo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { View, StyleSheet, TextInput, Platform } from 'react-native';
 import { scale } from '@common/utilities';
 
@@ -14,10 +14,15 @@ const CTextInput = (props: TextInputProps) => {
   const [text, setText] = useState('');
   const { onChangeText, style, type } = props;
 
+  const _onChangeText = (value: string) => {
+    onChangeText && onChangeText(value);
+    setText(value);
+  };
+
   return (
     <TextInput
       {...props}
-      onChangeText={value => setText(value)}
+      onChangeText={value => _onChangeText(value)}
       value={text}
       style={[
         Platform.OS === 'web'
