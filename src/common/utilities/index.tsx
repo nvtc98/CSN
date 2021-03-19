@@ -6,7 +6,7 @@ import _ from 'lodash';
 const baseWidth = 375;
 let screenSize = Dimensions.get('window');
 
-const isDesktop = __DEV__ ? true : screenSize.height < screenSize.width && screenSize.height > 812;
+const isDesktop = __DEV__ ? true : screenSize.height < screenSize.width && screenSize.height > 450;
 
 const scale = (value: number) => {
   return (value * screenSize.width) / baseWidth;
