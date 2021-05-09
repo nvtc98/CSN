@@ -9,7 +9,9 @@ import { scale, isDesktop } from '@common/utilities';
 import { color } from '@common/constants';
 import { AntDesign } from '@expo/vector-icons';
 import Store from '@redux/store';
-import Login from '@screens/Login';
+
+// Screens
+import { LoginScreen } from '@screens/Login';
 import Home from '@screens/Home';
 
 const Stack = createStackNavigator();
@@ -39,7 +41,7 @@ const NavContainer = () => {
       <NavigationContainer onStateChange={() => {}}>
         <Stack.Navigator headerMode="none" initialRouteName="Login">
           <Stack.Screen name="Tab" component={TabContainer} />
-          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

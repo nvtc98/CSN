@@ -9,7 +9,7 @@ const Home = ({}: indexProps) => {
   return (
     <View style={[commonStyles.center, { backgroundColor: color.secondary, flex: 1 }]}>
       <Image
-        source={require('@assets/images/IMG_0658.JPG')}
+        source={require('@assets/images/google.png')}
         style={{ width: scale(100), height: scale(100) }}
       />
     </View>
